@@ -10,6 +10,7 @@ namespace SchoolSum
     {
            private static string filePath = @"C:\Users\AlexAsenov\source\repos\SchoolSum\files\class-demo.csv";
         private static int countStudent = 0;
+        private static int countStudentAss = 0;
         private static int count2 = 0;
         private static int count3 = 0;
         private static int count4 = 0;
@@ -42,33 +43,33 @@ namespace SchoolSum
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, SchoolSort");
+            Console.WriteLine("Hello, SchoolSortAss");
             string[] lines = File.ReadAllLines(filePath);
 
             foreach (var line in lines)
             {
                 var array = line.Split(',');
-                Console.WriteLine("Nomer {0} = {1}",array[0], array[2]);
+                //Console.WriteLine("Nomer {0} = {1}",array[0], array[2]);
+                countStudent++;
                 if (string.IsNullOrEmpty(array[2]))
                 {
                     continue;
                 }
-                countStudent++;
+                countStudentAss++;
                 int ass = int.Parse(array[2]);
                 SortAss(ass);
-                sumSuccess += ass;
-                
-                //Console.WriteLine(line);
+                sumSuccess += ass; 
             }
-            Console.WriteLine("CountStudent: {0}", countStudent); 
-            averageSuccess = sumSuccess / (countStudent*1.0);
-            Console.WriteLine("CountStudent: {0}, Sum: {1}, AVG: ", countStudent, sumSuccess);
-            Console.WriteLine("AVG :{0:N2}",averageSuccess);
-            Console.WriteLine(" ass 2: {0}", count2);
-            Console.WriteLine(" ass 3: {0}", count3);
-            Console.WriteLine(" ass 4: {0}",count4);
-            Console.WriteLine(" ass 5: {0}", count5);
-            Console.WriteLine(" ass 6: {0}", count6);
+
+            Console.WriteLine("CountStudent : {0}", countStudent); 
+            averageSuccess = sumSuccess / (countStudentAss*1.0); 
+            Console.WriteLine(" ass 2 : {0}", count2);
+            Console.WriteLine(" ass 3 : {0}", count3);
+            Console.WriteLine(" ass 4 : {0}",count4);
+            Console.WriteLine(" ass 5 : {0}", count5);
+            Console.WriteLine(" ass 6 : {0}", count6);
+            Console.WriteLine("AVG : {0:N2}", averageSuccess);
+            Console.WriteLine("Empty Ass : {0}",(countStudent - countStudentAss));
         }
     }
 }
