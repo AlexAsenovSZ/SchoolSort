@@ -17,7 +17,29 @@ namespace SchoolSum
         private static int count6 = 0;
         private static double averageSuccess;        
         private static int sumSuccess = 0;
-
+        static void SortAss(int ass)
+        {
+            switch(ass)
+            {
+                case 2:
+                    count2++;
+                    break;
+                case 3:
+                    count3++;
+                    break;
+                case 4:
+                    count4++;
+                    break;
+                case 5:
+                    count5++;
+                    break;
+                case 6:
+                    count6++;
+                    break;
+                default:
+                    break;
+            }
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, SchoolSort");
@@ -31,8 +53,10 @@ namespace SchoolSum
                 {
                     continue;
                 }
-                countStudent++; 
-                sumSuccess += int.Parse(array[2]);
+                countStudent++;
+                int ass = int.Parse(array[2]);
+                SortAss(ass);
+                sumSuccess += ass;
                 
                 //Console.WriteLine(line);
             }
@@ -40,6 +64,11 @@ namespace SchoolSum
             averageSuccess = sumSuccess / (countStudent*1.0);
             Console.WriteLine("CountStudent: {0}, Sum: {1}, AVG: ", countStudent, sumSuccess);
             Console.WriteLine("AVG :{0:N2}",averageSuccess);
+            Console.WriteLine(" ass 2: {0}", count2);
+            Console.WriteLine(" ass 3: {0}", count3);
+            Console.WriteLine(" ass 4: {0}",count4);
+            Console.WriteLine(" ass 5: {0}", count5);
+            Console.WriteLine(" ass 6: {0}", count6);
         }
     }
 }
